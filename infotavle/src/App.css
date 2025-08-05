@@ -56,8 +56,14 @@ color: white;
 
 .logo{
   position: absolute;
-  bottom: 0;
+  bottom: -1rem;
   left: 0;
 }
 
 
+.info__slide{
+  font-display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: transform 0.3s ease;
+}
