@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import AnimatedBackground from './AnimatedBackground';
+
 
 function WeeklyWeather() {
   const [forecast, setForecast] = useState(null);
@@ -27,6 +29,7 @@ function WeeklyWeather() {
   return (
     <>
       {/* <h2>Vejrudsigten for hverdage i {forecast.location.name}</h2> */}
+      <AnimatedBackground/>
       <ul className='weather__list'>
         {forecast.forecast.forecastday
           .filter((day) => {
