@@ -4,6 +4,7 @@ import TodayDate from './components/TodayDate'
 import WeeklyWeather from './components/Weather'
 import Logo from './components/Logo'
 import './App.css'
+import InfoCarousel from './components/InfoCarousel'
 
 
 
@@ -19,13 +20,14 @@ function Home() {
       <WeeklyWeather/>
      </section>
      <section className='info__container'>
-       <p>Information</p>
+        <InfoCarousel /> 
      </section>
       <figure className="logo">
        <Logo />
       </figure>
-  
     </>
+    
+    
   )
 }
 
