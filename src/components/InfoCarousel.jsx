@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Klasser from "./Klasser";
 
 const InfoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,6 +27,7 @@ const InfoCarousel = () => {
     <div className="info__slide">
       <h2 className="slide__title text-5xl text-center mb-8">{slides[currentIndex].title}</h2>
       <p className="slide__description mt-4 text-red-50">{slides[currentIndex].description}</p>
+      <Klasser />
     </div>
   );
 };

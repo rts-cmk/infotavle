@@ -5,7 +5,7 @@ import WeeklyWeather from './components/Weather'
 import Logo from './components/Logo'
 import './App.css'
 import InfoCarousel from './components/InfoCarousel'
-import Slides from './components/Slides'
+
 
 
 
@@ -26,6 +26,8 @@ function Home() {
       <figure className="logo">
        <Logo />
       </figure>
+
+      
      
     </>
 
