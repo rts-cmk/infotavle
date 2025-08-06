@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 
 #root{
 display: grid;
@@ -64,6 +66,13 @@ color: white;
 .info__slide{
   font-display: flex;
   flex-direction: column;
-  gap: 2rem;
-  transition: transform 0.3s ease;
+  padding: 2rem;
+}
+
+.slide__title{
+  margin-bottom: 2rem;
+}
+
+.slide__description {
+  font-size: 1.5rem;
 }
