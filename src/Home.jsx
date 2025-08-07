@@ -13,8 +13,9 @@ function Home() {
   return (
     <>
      <section className='date-time'>
+         <Time />
        <TodayDate />
-       <Time />
+     
      </section>
      <section className="weather ">
       <WeeklyWeather/>

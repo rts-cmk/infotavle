@@ -2,9 +2,9 @@
 function TodayDate() {
   const today = new Date();
   const formatted = today.toLocaleDateString('da-DK', {
-    weekday: 'long',
+    weekday: 'short',
     day: 'numeric',
-    month: 'long',
+    month: 'short',
     year: 'numeric',
   });
 

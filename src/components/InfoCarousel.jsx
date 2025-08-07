@@ -24,7 +24,14 @@ const InfoCarousel = () => {
   return (
     <div className="info__slide">
       <h2 className="text-5xl text-center mb-8">{slides[currentIndex].title}</h2>
-      <p>{slides[currentIndex].description}</p>
+      {Array.isArray(slides[currentIndex].description)
+  ? slides[currentIndex].description.map((line, idx) => (
+      <p key={idx}>{line}</p>
+    ))
+  : slides[currentIndex].description.split(',').map((part, idx) => (
+      <p key={idx}>{part.trim()}</p>
+    ))
+}
     </div>
   );
 };
