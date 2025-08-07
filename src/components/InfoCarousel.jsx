@@ -6,7 +6,6 @@ const InfoCarousel = () => {
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    // Fetch JSON from public folder
     fetch("/data/sampledata.json")
       .then((res) => res.json())
       .then((data) => setSlides(data.slides))
@@ -38,11 +37,9 @@ const InfoCarousel = () => {
 
   return (
     <div
-      className={`info__slide transition-opacity duration-500 ease-in-out ${
-        fade ? "opacity-100" : "opacity-0"
-      }`}
+      className={`info__slide  ${ fade ? "opacity-100" : "opacity-0"}`}
     >
-      <h2 className="slide__title text-5xl text-center mb-8">
+      <h2 className="slide__title ">
         {currentSlide.title}
       </h2>
 
