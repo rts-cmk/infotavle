@@ -107,8 +107,3 @@ const InfoCarousel = () => {
 };
 
 export default InfoCarousel;
-
-
-
-
-
