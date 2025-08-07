@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import React from "react";
+
 
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
@@ -6,7 +8,6 @@ const InfoCarousel = () => {
   const [fade, setFade] = useState(true);
 
   useEffect(() => {
-    // Fetch JSON from public folder
     fetch("/data/sampledata.json")
       .then((res) => res.json())
       .then((data) => setSlides(data.slides))
@@ -38,7 +39,7 @@ const InfoCarousel = () => {
         );
         setFade(true);
       }, 300);
-    }, 5000);
+    }, 10000)
 
 
 
@@ -52,9 +53,8 @@ const InfoCarousel = () => {
 
   return (
     <div
-      className={`info__slide transition-opacity duration-500 ease-in-out ${
-        fade ? "opacity-100" : "opacity-0"
-      }`}
+      className={`info__slide  ${ fade ? "opacity-100" : "opacity-0"
+}`}
     >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
@@ -81,11 +81,22 @@ const InfoCarousel = () => {
       </tbody>
     </table>
   ) : (
-    <ul className="slide__description mt-4">
-      {currentSlide.description.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </ul>
+   <ul className="slide__description mt-4">
+  {currentSlide.description.map((item, idx) => (
+    <li key={idx}>{item}</li>
+  ))}
+
+  {currentSlide.title === "Pauser" && (
+    <li>
+      <img
+        src="./map.svg"
+        alt="map of canteen and more"
+      />
+    </li>
+  )}
+</ul>
+
+
   )
 ) : (
   <p className="slide__description mt-4">{currentSlide.description}</p>

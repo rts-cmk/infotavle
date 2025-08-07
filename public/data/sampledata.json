@@ -6,22 +6,12 @@
       "description": "Vi vil gerne byde dig hjerteligt velkommen ..."
     },
     {
-      "title": "Pause",
+      "title": "Pauser",
       "description": ["Første pause er kl. 9.40", "Frokostpausen er kl. 11.30."]
     },
     {
-      "title": "Vigtig information",
-      "description": "Husk at tjekke din skema for vigtige datoer."
-    },
-    {
        "title": "Grundforløb 1",
-       "description" : [
-        {
-        "class": "0032925c3d",
-        "teacher": "tsj",
-        "classroom": "X2210a",
-         "level":"grundforløb 1"
-        },
+       "description" :[
          {
         "class": "0032925c3d",
         "teacher": "tsj",
@@ -46,6 +36,35 @@
             "classroom": "J3167",
             "level":"grundforløb 1"
         },
+        {
+            "class": "0032925px1b",
+            "teacher": "mabj, pdh",
+            "classroom": "X2406b",
+            "level":"grundforløb 1"
+        },
+        {
+            "class": "0032925px1c",
+            "teacher": "sw, mabj",
+            "classroom": "X2404b",
+            "level":"grundforløb 1"
+        },
+        {
+            "class": "0032925px1e",
+            "teacher": "lac, joro, olp",
+            "classroom": "X2307a",
+            "level":"grundforløb 1"
+        },
+        {
+            "class": "0032925px1d",
+            "teacher": "olp, tan, sw",
+            "classroom": "X2404",
+            "level":"grundforløb 1"
+        }
+    ]},
+    {
+       "title": "Grundforløb 1",
+       "description" :[
+        
          {
             "class": "0032925b32blh2",
             "teacher": "lase",
@@ -106,30 +125,6 @@
             "teacher": "kala, pdh",
             "classroom": "X1403a",
             "level":"grundforløb 1"
-        },
-        {
-            "class": "0032925px1b",
-            "teacher": "mabj, pdh",
-            "classroom": "X2406b",
-            "level":"grundforløb 1"
-        },
-        {
-            "class": "0032925px1c",
-            "teacher": "sw, mabj",
-            "classroom": "X2404b",
-            "level":"grundforløb 1"
-        },
-        {
-            "class": "0032925px1e",
-            "teacher": "lac, joro, olp",
-            "classroom": "X2307a",
-            "level":"grundforløb 1"
-        },
-        {
-            "class": "0032925px1d",
-            "teacher": "olp, tan, sw",
-            "classroom": "X2404",
-            "level":"grundforløb 1"
         }
        ]
     },
@@ -137,12 +132,6 @@
        "title": "Grundforløb 2",
        "description" : [
           {
-        "class": "0189025c3t14",
-        "teacher": "dow, kbr",
-        "classroom": "HS414",
-         "level":"grundforløb 2"
-        },
-         {
         "class": "0189025c3t14",
         "teacher": "dow, kbr",
         "classroom": "HS414",
@@ -171,12 +160,6 @@
         "classroom": "X2108a",
         "level":"hovedforløb"
         },
-        {
-        "class": "1146524c3w12",
-        "teacher": "be",
-        "classroom": "X2108a",
-        "level":"hovedforløb"
-        }, 
         {
             "class": "1189025c12b",
             "teacher": "ssh",
