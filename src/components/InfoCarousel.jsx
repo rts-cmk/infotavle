@@ -12,6 +12,20 @@ const InfoCarousel = () => {
       .then((data) => setSlides(data.slides))
       .catch((error) => console.error("Failed to load data:", error));
   }, []);
+import { useState, useEffect } from "react";
+
+const InfoCarousel = () => {
+  const [slides, setSlides] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    // Fetch JSON from public folder
+    fetch("/data/sampledata.json")
+      .then((res) => res.json())
+      .then((data) => setSlides(data.slides))
+      .catch((error) => console.error("Failed to load data:", error));
+  }, []);
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -82,5 +96,8 @@ const InfoCarousel = () => {
 };
 
 export default InfoCarousel;
+
+
+
 
 
