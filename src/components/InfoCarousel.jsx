@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import React from "react";
+
 
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
@@ -37,9 +39,10 @@ const InfoCarousel = () => {
 
   return (
     <div
-      className={`info__slide  ${ fade ? "opacity-100" : "opacity-0"}`}
+      className={`info__slide  ${ fade ? "opacity-100" : "opacity-0"
+}`}
     >
-      <h2 className="slide__title ">
+      <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
       </h2>
 
@@ -64,11 +67,22 @@ const InfoCarousel = () => {
       </tbody>
     </table>
   ) : (
-    <ul className="slide__description mt-4">
-      {currentSlide.description.map((item, idx) => (
-        <li key={idx}>{item}</li>
-      ))}
-    </ul>
+   <ul className="slide__description mt-4">
+  {currentSlide.description.map((item, idx) => (
+    <li key={idx}>{item}</li>
+  ))}
+
+  {currentSlide.title === "Pauser" && (
+    <li>
+      <img
+        src="./map.svg"
+        alt="map of canteen and more"
+      />
+    </li>
+  )}
+</ul>
+
+
   )
 ) : (
   <p className="slide__description mt-4">{currentSlide.description}</p>
