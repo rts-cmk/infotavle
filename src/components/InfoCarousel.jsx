@@ -24,7 +24,7 @@ const InfoCarousel = () => {
         );
         setFade(true);
       }, 300);
-    }, 5000);
+    }, 10000)
 
 
 
