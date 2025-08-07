@@ -16,7 +16,7 @@ const InfoCarousel = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); 
+    }, 15000); 
 
     return () => clearInterval(interval); 
   }, []);
