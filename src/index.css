@@ -1,4 +1,9 @@
 
+@import "tailwindcss";
+
+@layer reset, base, components;
+
+
 @font-face {
   font-family: 'inter';
   src: url('/infotavle/public/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
@@ -16,5 +21,3 @@ li{
 html{
   font-family: 'inter', sans-serif;
 }
-
-@import "tailwindcss";

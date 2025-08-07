@@ -8,6 +8,8 @@ import InfoCarousel from './components/InfoCarousel'
 
 
 
+
+
 function Home() {
 
   return (
@@ -27,8 +29,6 @@ function Home() {
        <Logo />
       </figure>
     </>
-    
-    
   )
 }
 
