@@ -1,40 +1,29 @@
 import SkoleInfo from "../assets/skoleklasser";
 import { useState, useEffect } from 'react';
 
-export default function Klasser() {
-    const [Klasser, setKlasser] = useState(null);
-    const [loading, setLoading] = useState(true);
+function Klasser() {
+  const [data, setData] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await SkoleInfo();
-                setKlasser(data);
-            } catch (error) {
-                console.error("Error fetching Klasser:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+  useEffect(() => {
+    fetch("../data/sampledata.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Fetched data:", data);
+        setData(data);
+      })
+      .catch(error => console.error('Fetch error:', error));
+  }, []);
 
-        fetchData();
-    }, []);
-
-    const [error, setError] = useState(null);
-    if (error) {
-        return <p>Error: {error.message}</p>;
-    }
-    return (
-        <>
-
-        {console.log(Klasser)};
-        {loading && <p>Loading...</p>}
-        {error && <p>Error fetching Klasser: {error.message}</p>}
-        {Klasser && (
-          <div>
-             {Klasser}
-          </div>
-        )}
-        </>
-    )
+  return (
+    <div>
+      {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : "Loading..."}
+    </div>
+  );
 }
+
+export default Klasser;

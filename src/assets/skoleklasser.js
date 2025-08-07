@@ -1,7 +1,7 @@
 
 
 export default async function SkoleInfo() {
-  const response = await fetch('./data/sampledata.json', {
+  const response = await fetch("./data/sampledata.json", {
   })
 
   if (!response.ok) {
