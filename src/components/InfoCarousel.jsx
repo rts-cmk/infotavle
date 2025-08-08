@@ -13,20 +13,7 @@ const InfoCarousel = () => {
       .then((data) => setSlides(data.slides))
       .catch((error) => console.error("Failed to load data:", error));
   }, []);
-import { useState, useEffect } from "react";
 
-const InfoCarousel = () => {
-  const [slides, setSlides] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    // Fetch JSON from public folder
-    fetch("/data/sampledata.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data.slides))
-      .catch((error) => console.error("Failed to load data:", error));
-  }, []);
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -81,20 +68,20 @@ const InfoCarousel = () => {
       </tbody>
     </table>
   ) : (
-   <ul className="slide__description mt-4">
-  {currentSlide.description.map((item, idx) => (
+  <ul className="slide__descript mt-4">
+    {currentSlide.description.map((item, idx) => (
     <li key={idx}>{item}</li>
-  ))}
+    ))}
 
-  {currentSlide.title === "Pauser" && (
-    <li>
-      <img
-        src="./map.svg"
-        alt="map of canteen and more"
-      />
-    </li>
-  )}
-</ul>
+    {currentSlide.title === "Pauser" && (
+      <li>
+        <img className ="mappy"
+          src="./map.svg"
+          alt="map of canteen and more"
+        />
+      </li>
+    )}
+  </ul>
 
 
   )
