@@ -8,13 +8,16 @@ import InfoCarousel from './components/InfoCarousel'
 
 
 
+
+
 function Home() {
 
   return (
     <>
      <section className='date-time'>
+         <Time />
        <TodayDate />
-       <Time />
+     
      </section>
      <section className="weather ">
       <WeeklyWeather/>
@@ -26,8 +29,6 @@ function Home() {
        <Logo />
       </figure>
     </>
-    
-    
   )
 }
 

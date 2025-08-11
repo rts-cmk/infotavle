@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 
 #root{
 display: grid;
@@ -6,28 +8,34 @@ grid-template-rows: 15% 1fr;
 height: 100vh;
 color: white;
 }
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
 .date-time{
     background-color: #67D0F8;
-    font-size: 2rem;
-    padding: 1rem 5rem 1rem 8rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 2rem 5rem 2rem 9rem;
     display: flex;
-    justify-content: space-between;
+    gap: 18em;
     align-items: center;
-
+text-align: center;
 }
 .weather {
   background-color:#00AEEF ;
   grid-row: span 2;
   font-size: 1.5rem;
-  padding: 1rem;
+  
 }
 
 .weather__list{
    display:grid;
   grid-template-rows: repeat(5, 1fr);
-  height: 100%;
+  height: 90%;
   position: relative;
+padding-top: 2em;
 }
 
 .animated__background{
@@ -52,6 +60,14 @@ color: white;
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 35rem;
+    overflow: auto;
+
+}
+
+.mappy{
+  width: 30rem;
+  height: 30rem;
 }
 
 .logo{
@@ -63,7 +79,32 @@ color: white;
 
 .info__slide{
   font-display: flex;
+  font-size: 1.5em;
+  text-align: center;
   flex-direction: column;
-  gap: 2rem;
-  transition: transform 0.3s ease;
+  overflow: auto;
+  width: 60%;
 }
+
+.slide__title{
+  margin-bottom: 1rem;
+}
+
+.slide__description {
+  font-size: 1.5rem;
+}
+
+.slide__descript.mt-4 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.info__container, .info__slide {
+  box-sizing: border-box;
+}
+
+
+
