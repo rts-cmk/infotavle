@@ -13,20 +13,6 @@ const InfoCarousel = () => {
       .then((data) => setSlides(data.slides))
       .catch((error) => console.error("Failed to load data:", error));
   }, []);
-import { useState, useEffect } from "react";
-
-const InfoCarousel = () => {
-  const [slides, setSlides] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    // Fetch JSON from public folder
-    fetch("/data/sampledata.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data.slides))
-      .catch((error) => console.error("Failed to load data:", error));
-  }, []);
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -62,7 +48,7 @@ const InfoCarousel = () => {
 
     {Array.isArray(currentSlide.description) ? (
   typeof currentSlide.description[0] === "object" ? (
-    <table className="mt-4 w-full text-left">
+    <table className="class-room__info">
       <thead>
         <tr>
           <th className="pr-4">Klasse</th>
@@ -91,6 +77,7 @@ const InfoCarousel = () => {
       <img
         src="./map.svg"
         alt="map of canteen and more"
+        className="map"
       />
     </li>
   )}
@@ -107,3 +94,5 @@ const InfoCarousel = () => {
 };
 
 export default InfoCarousel;
+
+
