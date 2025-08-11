@@ -8,15 +8,18 @@ grid-template-rows: 15% 1fr;
 height: 100vh;
 color: white;
 }
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
 .date-time{
     background-color: #67D0F8;
     font-size: 2.5rem;
     font-weight: 600;
-    padding: 2rem 5rem 2rem 8rem;
+    padding: 2rem 5rem 2rem 9rem;
     display: flex;
-    gap: 9em;
-   /*  justify-content: space-between; */
+    gap: 18em;
     align-items: center;
 text-align: center;
 }
@@ -24,7 +27,6 @@ text-align: center;
   background-color:#00AEEF ;
   grid-row: span 2;
   font-size: 1.5rem;
-  padding: 1rem;
   
 }
 
@@ -33,7 +35,7 @@ text-align: center;
   grid-template-rows: repeat(5, 1fr);
   height: 90%;
   position: relative;
-padding-top: 1.5em;
+padding-top: 2em;
 }
 
 .animated__background{
@@ -53,44 +55,53 @@ padding-top: 1.5em;
 
 .info__container{
     background-color:#7DC242 ;
-    margin: 3rem;
+    margin:5rem 5rem 5rem 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 35rem;
+    overflow: auto;
+
+}
+
+.mappy{
+  width: 30rem;
+  height: 30rem;
 }
 
 .logo{
   position: absolute;
   bottom: -1rem;
-  left: -1rem;
-  filter: drop-shadow(3px 5px 2px rgba(242, 240, 240, 0.3));
+  left: 0;
 }
 
 
 .info__slide{
   font-display: flex;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
-  line-height: 2em;
   flex-direction: column;
-
+  overflow: auto;
+  width: 60%;
 }
 
 .slide__title{
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .slide__description {
   font-size: 1.5rem;
 }
 
-.map{
-  height: 20rem;
+.slide__descript.mt-4 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-items: center;
+  gap: 2rem;
 }
 
-
-.class-room__info th{
-  width: 100%;
+.info__container, .info__slide {
+  box-sizing: border-box;
 }
-

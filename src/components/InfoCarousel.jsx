@@ -14,6 +14,7 @@ const InfoCarousel = () => {
       .catch((error) => console.error("Failed to load data:", error));
   }, []);
 
+
   useEffect(() => {
     if (slides.length === 0) return;
 
@@ -48,7 +49,7 @@ const InfoCarousel = () => {
 
     {Array.isArray(currentSlide.description) ? (
   typeof currentSlide.description[0] === "object" ? (
-    <table className="class-room__info">
+    <table className="mt-4 w-full text-left">
       <thead>
         <tr>
           <th className="pr-4">Klasse</th>
@@ -67,21 +68,20 @@ const InfoCarousel = () => {
       </tbody>
     </table>
   ) : (
-   <ul className="slide__description mt-4">
-  {currentSlide.description.map((item, idx) => (
+  <ul className="slide__descript mt-4">
+    {currentSlide.description.map((item, idx) => (
     <li key={idx}>{item}</li>
-  ))}
+    ))}
 
-  {currentSlide.title === "Pauser" && (
-    <li>
-      <img
-        src="./map.svg"
-        alt="map of canteen and more"
-        className="map"
-      />
-    </li>
-  )}
-</ul>
+    {currentSlide.title === "Pauser" && (
+      <li>
+        <img className ="mappy"
+          src="./map.svg"
+          alt="map of canteen and more"
+        />
+      </li>
+    )}
+  </ul>
 
 
   )
@@ -94,5 +94,3 @@ const InfoCarousel = () => {
 };
 
 export default InfoCarousel;
-
-
