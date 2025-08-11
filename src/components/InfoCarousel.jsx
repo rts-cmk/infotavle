@@ -67,7 +67,7 @@ const InfoCarousel = () => {
                 <img
                   className="mappy"
                   src="./map.svg"
-                  alt="map of canteen and more"
+                  alt="map of surrounding area, including grocery stores"
                 />
               </li>
             )}
