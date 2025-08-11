@@ -25,9 +25,9 @@ function Time() {
   });
 
   return (
-    <div className="text-3xl font-semibold font-mono">
+    <time className="text-3xl font-semibold font-mono">
       {formattedTime}
-    </div>
+    </time>
   );
 }
 
