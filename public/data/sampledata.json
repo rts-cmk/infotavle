@@ -12,28 +12,22 @@
     {
        "title": "Grundforløb 1",
        "description" :[
+        {
+           "class": "0146525c3w15",
+           "teacher": "dow, shl, han",
+           "classroom": "X2109d",
+           "level":"grundforløb 2"
+                   },
          {
         "class": "0032925c3d",
         "teacher": "tsj",
         "classroom": "X2210a",
          "level":"grundforløb 1"
         },
-         {
-            "class": "0032925b32blh1",
-            "teacher": "nf",
-            "classroom": "Q2101",
-             "level":"grundforløb 1"
-        },
-         {
-            "class": "0032925b32blh3",
-            "teacher": "miry",
-            "classroom": "Q8101",
-             "level":"grundforløb 1"
-        },
-         {
-            "class": "0032925pmt02",
-            "teacher": "henj",
-            "classroom": "J3167",
+        {
+            "class": "0032925px1e",
+            "teacher": "lac, joro, olp",
+            "classroom": "X2307a",
             "level":"grundforløb 1"
         },
         {
@@ -49,23 +43,22 @@
             "level":"grundforløb 1"
         },
         {
-            "class": "0032925px1e",
-            "teacher": "lac, joro, olp",
-            "classroom": "X2307a",
-            "level":"grundforløb 1"
-        },
-        {
             "class": "0032925px1d",
             "teacher": "olp, tan, sw",
             "classroom": "X2404",
             "level":"grundforløb 1"
+        },
+         {
+            "class": "0032925px1a",
+            "teacher": "kala, pdh",
+            "classroom": "X1403a",
+            "level":"grundforløb 1"
         }
     ]},
-    {
-       "title": "Grundforløb 1",
-       "description" :[
-        
-         {
+     {
+        "title": "Grundforløb 1",
+        "description" : [
+              {
             "class": "0032925b32blh2",
             "teacher": "lase",
             "classroom": "Q3101A",
@@ -77,17 +70,39 @@
             "classroom": "Q3101B",
             "level":"grundforløb 1"
         },
+         {
+            "class": "0032925b32blh1",
+            "teacher": "nf",
+            "classroom": "Q2101",
+             "level":"grundforløb 1"
+        },
+         {
+            "class": "0032925b32blh3",
+            "teacher": "miry",
+            "classroom": "Q8101",
+             "level":"grundforløb 1"
+        }
+        ]},
+    {
+       "title": "Grundforløb 1",
+       "description" :[
+        
         {
             "class": "0032925pmt01",
             "teacher": "mhp",
             "classroom": "J3166",
              "level":"grundforløb 1"
-        },
-        
+        }, 
         {
             "class": "0032925pmt03",
             "teacher": "aij",
             "classroom": "J3168a",
+            "level":"grundforløb 1"
+        },
+          {
+            "class": "0032925pmt02",
+            "teacher": "henj",
+            "classroom": "J3167",
             "level":"grundforløb 1"
         },
         {
@@ -101,8 +116,12 @@
             "teacher": "sta",
             "classroom": "C9101",
             "level":"grundforløb 1"
-        },
-        {
+        }
+       ]
+    },{
+        "title": "Grundforløb 1",
+        "description": [
+             {
             "class": "0032925pte02",
             "teacher": "klba",
             "classroom": "",
@@ -119,15 +138,8 @@
             "teacher": "nas",
             "classroom": "",
             "level":"grundforløb 1"
-        },
-        {
-            "class": "0032925px1a",
-            "teacher": "kala, pdh",
-            "classroom": "X1403a",
-            "level":"grundforløb 1"
         }
-       ]
-    },
+        ]},
     {
        "title": "Grundforløb 2",
        "description" : [
@@ -142,12 +154,6 @@
             "teacher": "kbr",
             "classroom": "",
              "level":"grundforløb 2"
-        },
-         {
-            "class": "0146525c3w15",
-            "teacher": "dow, shl, han",
-            "classroom": "X2109d",
-             "level":"grundforløb 2"
         }
        ]
     },
@@ -161,28 +167,27 @@
         "level":"hovedforløb"
         },
         {
+           "class": "1146525c1w13",
+           "teacher": "clu",
+           "classroom": "X2109a",
+           "level":"hovedforløb"
+       },
+       {
+           "class": "1152525c40typo",
+           "teacher": "phl",
+           "classroom": "X2305a",
+           "level":"hovedforløb"
+       },
+        {
             "class": "1189025c12b",
             "teacher": "ssh",
             "classroom": "HS411",
             "level":"hovedforløb"
         },
-         {
-            "class": "1146525c1w13",
-            "teacher": "clu",
-            "classroom": "X2109a",
-            "level":"hovedforløb"
-        },
-       
         {
             "class": "1189025c12m",
             "teacher": "pel, cch",
             "classroom": "HS413",
-            "level":"hovedforløb"
-        },
-        {
-            "class": "1152525c40typo",
-            "teacher": "phl",
-            "classroom": "X2305a",
             "level":"hovedforløb"
         }
         ]
