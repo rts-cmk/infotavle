@@ -20,8 +20,8 @@ const InfoCarousel = () => {
       setTimeout(() => {
         setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
         setFade(true);
-      }, 300);
-    }, 10000);
+      });
+    }, 10500);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -41,16 +41,16 @@ const InfoCarousel = () => {
           <table className="mt-4 w-full text-left">
             <thead>
               <tr>
-                <th className="pr-4">Klasse</th>
-                <th className="pr-4">Underviser</th>
+                <th>Klasse</th>
+                <th>Underviser</th>
                 <th>Lokale</th>
               </tr>
             </thead>
             <tbody>
               {currentSlide.description.map((item, idx) => (
                 <tr key={idx}>
-                  <td className="pr-4">{item.class}</td>
-                  <td className="pr-4">{item.teacher}</td>
+                  <td>{item.class}</td>
+                  <td>{item.teacher}</td>
                   <td>{item.classroom || "-"}</td>
                 </tr>
               ))}
