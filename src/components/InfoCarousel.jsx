@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 
+
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +13,6 @@ const InfoCarousel = () => {
       .then((data) => setSlides(data.slides))
       .catch((error) => console.error("Failed to load data:", error));
   }, []);
-
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -27,6 +27,10 @@ const InfoCarousel = () => {
 
 
 
+        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+        setFade(true);
+      });
+    }, 10500);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -42,7 +46,7 @@ const InfoCarousel = () => {
           animate={{opacity: 1, x: 0}}
           exit={{opacity : 0, x: -100}}
           transition={{duration: 0.5}} 
-    >
+    <div className={`info__slide  ${fade ? "opacity-100" : "opacity-0"}`}>
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
       </h2>
@@ -90,6 +94,47 @@ const InfoCarousel = () => {
 )}
 
     </motion.div>
+      {Array.isArray(currentSlide.description) ? (
+        typeof currentSlide.description[0] === "object" ? (
+          <table className="mt-4 w-full text-left">
+            <thead>
+              <tr>
+                <th>Klasse</th>
+                <th>Underviser</th>
+                <th>Lokale</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentSlide.description.map((item, idx) => (
+                <tr key={idx}>
+                  <td>{item.class}</td>
+                  <td>{item.teacher}</td>
+                  <td>{item.classroom || "-"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <ul className="slide__descript mt-4">
+            {currentSlide.description.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+
+            {currentSlide.title === "Pauser" && (
+              <li>
+                <img
+                  className="mappy"
+                  src="./map.svg"
+                  alt="map of surrounding area, including grocery stores"
+                />
+              </li>
+            )}
+          </ul>
+        )
+      ) : (
+        <p className="slide__description mt-4">{currentSlide.description}</p>
+      )}
+    </div>
   );
 };
 
