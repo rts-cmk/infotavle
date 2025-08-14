@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import React from "react";
+import { motion } from "framer-motion";
 
 
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
 
   useEffect(() => {
     fetch("/data/sampledata.json")
@@ -19,13 +18,11 @@ const InfoCarousel = () => {
     if (slides.length === 0) return;
 
     const interval = setInterval(() => {
-      setFade(false);
       setTimeout(() => {
         setCurrentIndex((prev) =>
           prev === slides.length - 1 ? 0 : prev + 1
         );
-        setFade(true);
-      }, 300);
+      });
     }, 10000)
 
 
@@ -39,9 +36,12 @@ const InfoCarousel = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div
-      className={`info__slide  ${ fade ? "opacity-100" : "opacity-0"
-}`}
+    <motion.div
+          key={currentIndex}
+          initial={{opacity : 0, x: 100}}
+          animate={{opacity: 1, x: 0}}
+          exit={{opacity : 0, x: -100}}
+          transition={{duration: 0.5}} 
     >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
@@ -89,7 +89,7 @@ const InfoCarousel = () => {
   <p className="slide__description mt-4">{currentSlide.description}</p>
 )}
 
-    </div>
+    </motion.div>
   );
 };
 
