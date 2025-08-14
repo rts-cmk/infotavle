@@ -15,13 +15,15 @@ const InfoCarousel = () => {
 
   useEffect(() => {
     if (slides.length === 0) return;
-
     const interval = setInterval(() => {
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  
+        setCurrentIndex((prev) =>
+          prev === slides.length - 1 ? 0 : prev + 1
+        );
+       
       });
-    }, 10500);
+    }, 10000)
+
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -31,13 +33,15 @@ const InfoCarousel = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <motion.div className='info__slide'
-    key={currentIndex}
-    initial={{opacity : 0, x: 100}}
-    animate={{opacity: 1, x: 0}}
-    exit={{opacity : 0, x: -100}}
-    transition={{duration: 0.5}}>
+    <motion.div
+      className='info__slider'
+      key={currentIndex}
+       initial={{opacity : 0, x: 100}}
+          animate={{opacity: 1, x: 0}}
+          exit={{opacity : 0, x: -100}}
+          transition={{duration: 0.5}}
 
+    >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
       </h2>
@@ -68,20 +72,22 @@ const InfoCarousel = () => {
               <li key={idx}>{item}</li>
             ))}
 
-            {currentSlide.title === "Pauser" && (
-              <li>
-                <img
-                  className="mappy"
-                  src="./map.svg"
-                  alt="map of surrounding area, including grocery stores"
-                />
-              </li>
-            )}
-          </ul>
-        )
-      ) : (
-        <p className="slide__description mt-4">{currentSlide.description}</p>
-      )}
+    {currentSlide.title === "Pauser" && (
+      <li>
+        <img className ="mappy"
+          src="./map.svg"
+          alt="map of canteen and more"
+        />
+      </li>
+    )}
+  </ul>
+
+
+  )
+) : (
+  <p className="slide__description mt-4">{currentSlide.description}</p>
+)}
+
     </motion.div>
   );
 };
