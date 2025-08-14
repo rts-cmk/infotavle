@@ -19,7 +19,9 @@ body {
   font-weight: 600;
   padding: 2rem 5rem 2rem 9rem;
   display: flex;
-  gap: 18em;
+  gap: 18em;Velkommen til Roskilde Tekniske Skole
+
+Vi vil gerne byde dig hjerteligt
   align-items: center;
   text-align: center;
 }
@@ -103,4 +105,3 @@ body {
 .info__slide {
   box-sizing: border-box;
 }
-

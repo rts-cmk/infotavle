@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+ 
 
   useEffect(() => {
     fetch("/data/sampledata.json")
@@ -14,14 +15,15 @@ const InfoCarousel = () => {
 
   useEffect(() => {
     if (slides.length === 0) return;
-
     const interval = setInterval(() => {
-      setFade(false);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-        setFade(true);
+        setCurrentIndex((prev) =>
+          prev === slides.length - 1 ? 0 : prev + 1
+        );
+       
       });
-    }, 10500);
+    }, 10000)
+
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -31,7 +33,15 @@ const InfoCarousel = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className={`info__slide  ${fade ? "opacity-100" : "opacity-0"}`}>
+    <motion.div
+      className='info__slider'
+      key={currentIndex}
+       initial={{opacity : 0, x: 100}}
+          animate={{opacity: 1, x: 0}}
+          exit={{opacity : 0, x: -100}}
+          transition={{duration: 0.5}}
+
+    >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
       </h2>
@@ -62,21 +72,23 @@ const InfoCarousel = () => {
               <li key={idx}>{item}</li>
             ))}
 
-            {currentSlide.title === "Pauser" && (
-              <li>
-                <img
-                  className="mappy"
-                  src="./map.svg"
-                  alt="map of canteen and more"
-                />
-              </li>
-            )}
-          </ul>
-        )
-      ) : (
-        <p className="slide__description mt-4">{currentSlide.description}</p>
-      )}
-    </div>
+    {currentSlide.title === "Pauser" && (
+      <li>
+        <img className ="mappy"
+          src="./map.svg"
+          alt="map of canteen and more"
+        />
+      </li>
+    )}
+  </ul>
+
+
+  )
+) : (
+  <p className="slide__description mt-4">{currentSlide.description}</p>
+)}
+
+    </motion.div>
   );
 };
 
