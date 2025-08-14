@@ -19,9 +19,7 @@ body {
   font-weight: 600;
   padding: 2rem 5rem 2rem 9rem;
   display: flex;
-  gap: 18em;Velkommen til Roskilde Tekniske Skole
-
-Vi vil gerne byde dig hjerteligt
+  gap: 50%;
   align-items: center;
   text-align: center;
 }
@@ -70,13 +68,7 @@ Vi vil gerne byde dig hjerteligt
   height: 30rem;
 }
 
-.logo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.info__slide {
+.info__slider {
   font-display: flex;
   font-size: 1.5em;
   text-align: center;
@@ -102,6 +94,6 @@ Vi vil gerne byde dig hjerteligt
 }
 
 .info__container,
-.info__slide {
+.info__slider {
   box-sizing: border-box;
 }

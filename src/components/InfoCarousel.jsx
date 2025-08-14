@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
- 
 
   useEffect(() => {
     fetch("/data/sampledata.json")
@@ -17,13 +16,9 @@ const InfoCarousel = () => {
     if (slides.length === 0) return;
     const interval = setInterval(() => {
       setTimeout(() => {
-        setCurrentIndex((prev) =>
-          prev === slides.length - 1 ? 0 : prev + 1
-        );
-       
+        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
       });
-    }, 10000)
-
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -34,13 +29,12 @@ const InfoCarousel = () => {
 
   return (
     <motion.div
-      className='info__slider'
+      className="info__slider"
       key={currentIndex}
-       initial={{opacity : 0, x: 100}}
-          animate={{opacity: 1, x: 0}}
-          exit={{opacity : 0, x: -100}}
-          transition={{duration: 0.5}}
-
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.5 }}
     >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
@@ -48,7 +42,7 @@ const InfoCarousel = () => {
 
       {Array.isArray(currentSlide.description) ? (
         typeof currentSlide.description[0] === "object" ? (
-          <table className="mt-4 w-full text-left">
+          <table className="pt-15 w-full text-left">
             <thead>
               <tr>
                 <th>Klasse</th>
@@ -72,22 +66,20 @@ const InfoCarousel = () => {
               <li key={idx}>{item}</li>
             ))}
 
-    {currentSlide.title === "Pauser" && (
-      <li>
-        <img className ="mappy"
-          src="./map.svg"
-          alt="map of canteen and more"
-        />
-      </li>
-    )}
-  </ul>
-
-
-  )
-) : (
-  <p className="slide__description mt-4">{currentSlide.description}</p>
-)}
-
+            {currentSlide.title === "Pauser" && (
+              <li>
+                <img
+                  className="mappy"
+                  src="./map.svg"
+                  alt="map of canteen and more"
+                />
+              </li>
+            )}
+          </ul>
+        )
+      ) : (
+        <p className="slide__description mt-4">{currentSlide.description}</p>
+      )}
     </motion.div>
   );
 };
