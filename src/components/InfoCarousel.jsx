@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const InfoCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
 
   useEffect(() => {
     fetch("/data/sampledata.json")
@@ -14,14 +14,11 @@ const InfoCarousel = () => {
 
   useEffect(() => {
     if (slides.length === 0) return;
-
     const interval = setInterval(() => {
-      setFade(false);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-        setFade(true);
       });
-    }, 10500);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -31,14 +28,21 @@ const InfoCarousel = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className={`info__slide  ${fade ? "opacity-100" : "opacity-0"}`}>
+    <motion.div
+      className="info__slider"
+      key={currentIndex}
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="slide__title text-5xl text-center mb-8">
         {currentSlide.title}
       </h2>
 
       {Array.isArray(currentSlide.description) ? (
         typeof currentSlide.description[0] === "object" ? (
-          <table className="mt-4 w-full text-left">
+          <table className="pt-15 w-full text-left">
             <thead>
               <tr>
                 <th>Klasse</th>
@@ -67,7 +71,7 @@ const InfoCarousel = () => {
                 <img
                   className="mappy"
                   src="./map.svg"
-                  alt="map of surrounding area, including grocery stores"
+                  alt="map of canteen and more"
                 />
               </li>
             )}
@@ -76,7 +80,7 @@ const InfoCarousel = () => {
       ) : (
         <p className="slide__description mt-4">{currentSlide.description}</p>
       )}
-    </div>
+    </motion.div>
   );
 };
 
