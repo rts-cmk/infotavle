@@ -66,7 +66,7 @@ function WeeklyWeather() {
                       : isCloudy ? (<AnimatedBackground icon="CLOUDY" />)
                       : isWindy ? ( <AnimatedBackground icon="WIND"/> ) 
                       : isFogy ? ( <AnimatedBackground icon="FOG"/> ) 
-                      : isFogy ? ( <AnimatedBackground icon="SNOW"/> ) 
+                      : isSnowing ? ( <AnimatedBackground icon="SNOW"/> ) 
                       : null} 
             </li>
             )
