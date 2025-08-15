@@ -61,7 +61,7 @@ const InfoCarousel = () => {
             </tbody>
           </table>
         ) : (
-          <ul className="slide__descript mt-4">
+          <ul className="slide__descript">
             {currentSlide.description.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
@@ -78,7 +78,7 @@ const InfoCarousel = () => {
           </ul>
         )
       ) : (
-        <p className="slide__description mt-4">{currentSlide.description}</p>
+        <p className="slide__description">{currentSlide.description}</p>
       )}
     </motion.div>
   );
