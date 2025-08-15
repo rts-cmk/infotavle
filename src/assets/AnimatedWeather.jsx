@@ -30,7 +30,7 @@ const AnimatedWeather = ({
 
 AnimatedWeather.defaultProps = {
   animate: true,
-  size: 64,
+  size: 50,
   color: 'black'
 };
 
