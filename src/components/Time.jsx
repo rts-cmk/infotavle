@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function Time() {
   const [time, setTime] = useState(new Date());
@@ -8,10 +8,13 @@ function Time() {
     const interval = setInterval(() => setTime(new Date()), 60000);
 
     // Sync update to the start of each minute
-    const timeout = setTimeout(() => {
-      setTime(new Date());
-      setInterval(() => setTime(new Date()), 60000);
-    }, (60 - time.getSeconds()) * 1000);
+    const timeout = setTimeout(
+      () => {
+        setTime(new Date());
+        setInterval(() => setTime(new Date()), 60000);
+      },
+      (60 - time.getSeconds()) * 1000,
+    );
 
     return () => {
       clearInterval(interval);
@@ -20,14 +23,13 @@ function Time() {
   }, []);
 
   const formattedTime = time.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h24",
   });
 
   return (
-    <time className="text-3xl font-semibold font-mono">
-      {formattedTime}
-    </time>
+    <time className="text-3xl font-semibold font-mono">{formattedTime}</time>
   );
 }
 

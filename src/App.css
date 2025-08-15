@@ -79,7 +79,7 @@ body {
   text-align: center;
   flex-direction: column;
   overflow: auto;
-  width: 60%;
+  width: 80%;
 }
 
 .slide__title {
@@ -90,10 +90,9 @@ body {
   font-size: 1.5rem;
 }
 
-.slide__descript.mt-4 {
+.slide__descript {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   align-items: center;
   gap: 2rem;
 }
