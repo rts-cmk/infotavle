@@ -11,7 +11,7 @@ function setIcon(icon, animate, skyconIcon, canvas) {
 }
 
 const AnimatedWeather = ({
-  icon, color, size, animate
+  opacity,icon, color, size, animate
 }) => {
   const skyconCanvas = useRef(null);
 
@@ -23,7 +23,7 @@ const AnimatedWeather = ({
     return () => {
       skyconIcon.remove(canvas);
     };
-  }, [icon, color, animate, size]);
+  }, [icon, color, animate, size, opacity]);
 
   return <canvas ref={skyconCanvas} width={size} height={size} />;
 };

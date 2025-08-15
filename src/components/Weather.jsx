@@ -25,32 +25,59 @@ function WeeklyWeather() {
   if (error) return <p>Fejl: {error}</p>;
   if (!forecast) return <p>Indlæser vejrudsigten...</p>;
 
+// console.log(forecast); 
+  
+
   return (
     <>
-      {/* <h2>Vejrudsigten for hverdage i {forecast.location.name}</h2> */}
-      <AnimatedBackground />
-      <ul className="weather__list">
-        {forecast.forecast.forecastday
-          .filter((day) => {
-            const dayOfWeek = new Date(day.date).getDay();
-            return dayOfWeek >= 1 && dayOfWeek <= 5; // 1=Mandag, 5=Fredag
-          })
-          .map((day) => (
-            <li className="weather__day" key={day.date}>
-              <strong>
-                {new Date(day.date).toLocaleDateString("da-DK", {
-                  weekday: "long",
-                })}
-              </strong>{" "}
-              {day.day.avgtemp_c}°C {day.day.condition.text}
-              <img
-                src={day.day.condition.icon}
-                alt={day.day.condition.text}
-                style={{ marginLeft: "8px" }}
-              />
-            </li>
-          ))}
-      </ul>
+   <ul className="weather__list">
+
+   {console.log(forecast)}
+    
+
+    {forecast.forecast.forecastday
+    .filter((day) => {
+      const dayOfWeek = new Date(day.date).getDay();
+      return dayOfWeek >= 1 && dayOfWeek <= 5; /* monday to freday */})
+
+    .map((day) => {
+
+      const isRain = day.day.condition.text.toLowerCase().trim("regn");
+      const isClear = day.day.condition.text.toLowerCase().trim("klar");
+      const isPartCloudy = day.day.condition.text.toLowerCase().trim("Letskyet");
+      const isCloudy = day.day.condition.text.toLowerCase().trim("skyet");
+      const isWindy = day.day.condition.text.toLowerCase().trim("blæs");
+      const isFogy = day.day.condition.text.toLowerCase().trim("tåge");
+      const isSnowing = day.day.condition.text.toLowerCase().trim("sne");
+
+      return (
+        <li className="weather__day" key={day.date}>
+          <strong>
+            {new Date(day.date).toLocaleDateString("da-DK", {
+              weekday: "long",
+            })}
+          </strong>{" "}
+          {day.day.avgtemp_c}°C {day.day.condition.text}
+          <img
+            src={day.day.condition.icon}
+            alt={day.day.condition.text}
+            style={{ marginLeft: "8px" }}
+          />
+
+          {isRain ? (<AnimatedBackground icon="RAIN" className="animated__background" />) 
+          : isClear ? (<AnimatedBackground icon="CLEAR_DAY" />) 
+          : isPartCloudy ? (<AnimatedBackground icon="PARTLY_CLOUDY_DAY" />) 
+          : isCloudy ? (<AnimatedBackground icon="CLOUDY" />)
+          : isWindy ? ( <AnimatedBackground icon="WIND"/> ) 
+          : isFogy ? ( <AnimatedBackground icon="FOG"/> ) 
+          : isFogy ? ( <AnimatedBackground icon="SNOW"/> ) 
+          : null}
+        </li>
+      );
+    })}
+</ul>
+
+
     </>
   );
 }
