@@ -26,7 +26,7 @@ function WeeklyWeather() {
   if (!forecast) return <p>Indlæser vejrudsigten...</p>;
 
 // console.log(forecast); 
- const weather = forecast.forecast.forecastday.filter(day => {
+    const weather = forecast.forecast.forecastday.filter(day => {
     const dayOfWeek = new Date(day.date).getDay();
     return dayOfWeek >= 1 && dayOfWeek <= 5})
 
@@ -38,13 +38,13 @@ function WeeklyWeather() {
       <ul className="weather__list">
       {weather.map((day) => {
 
-          const isRain = day.day.condition.text.toLowerCase().trim("regn");
-          const isClear = day.day.condition.text.toLowerCase().trim("klar");
-          const isPartCloudy = day.day.condition.text.toLowerCase().trim("Letskyet");
-          const isCloudy = day.day.condition.text.toLowerCase().trim("skyet");
-          const isWindy = day.day.condition.text.toLowerCase().trim("blæs");
-          const isFogy = day.day.condition.text.toLowerCase().trim("tåge");
-          const isSnowing = day.day.condition.text.toLowerCase().trim("sne");
+          const isRain = day.day.condition.text.toLowerCase().includes("regn");
+          const isClear = day.day.condition.text.toLowerCase().includes("klar");
+          const isPartCloudy = day.day.condition.text.toLowerCase().includes("Letskyet");
+          const isCloudy = day.day.condition.text.toLowerCase().includes("skyet");
+          const isWindy = day.day.condition.text.toLowerCase().includes("blæs");
+          const isFogy = day.day.condition.text.toLowerCase().includes("tåge");
+          const isSnowing = day.day.condition.text.toLowerCase().includes("sne");
         
             return(
             <li className="weather__day" key={day.date}>
@@ -54,19 +54,20 @@ function WeeklyWeather() {
                 })}
               </strong>{" "}
               {day.day.avgtemp_c}°C  {day.day.condition.text}
+              {console.log(isRain, isClear, isPartCloudy, isCloudy, isWindy, isFogy, isSnowing)}
               <img
                 src={day.day.condition.icon}
                 alt={day.day.condition.text}
                 style={{ marginLeft: "8px" }}
               />
 
-           {isRain ? (<AnimatedBackground icon="RAIN" className="animated__background" />) 
-                      : isClear ? (<AnimatedBackground icon="CLEAR_DAY" />) 
-                      : isPartCloudy ? (<AnimatedBackground icon="PARTLY_CLOUDY_DAY" />) 
-                      : isCloudy ? (<AnimatedBackground icon="CLOUDY" />)
-                      : isWindy ? ( <AnimatedBackground icon="WIND"/> ) 
-                      : isFogy ? ( <AnimatedBackground icon="FOG"/> ) 
-                      : isFogy ? ( <AnimatedBackground icon="SNOW"/> ) 
+           {isRain ? (<AnimatedBackground icon='RAIN' className="animated__background" />) 
+                      : isClear ? (<AnimatedBackground icon="CLEAR_DAY" className="animated__background" />) 
+                      : isPartCloudy ? (<AnimatedBackground icon="PARTLY_CLOUDY_DAY"  className="animated__background"/>) 
+                      : isCloudy ? (<AnimatedBackground icon="CLOUDY"  className="animated__background"/>)
+                      : isWindy ? ( <AnimatedBackground icon="WIND" className="animated__background"/> ) 
+                      : isFogy ? ( <AnimatedBackground icon="FOG" className="animated__background"/> ) 
+                      : isSnowing ? ( <AnimatedBackground icon="SNOW" className="animated__background"/> ) 
                       : null} 
             </li>
             )
