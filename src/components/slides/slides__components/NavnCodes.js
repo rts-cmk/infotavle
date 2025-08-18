@@ -1,10 +1,8 @@
 
 export const klasserNavn = {
-  1525: "Mediegrafiker",
-  1465: "Webudvikler",
-  1890: "Teknisk Designer",
-  '00329': "Grundforløb",
-
+"1525": "Mediegrafiker",
+  "1465": "Webudvikler",
+  "1890": "Teknisk Design",
 };
 
 
