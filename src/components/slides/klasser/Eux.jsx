@@ -60,12 +60,10 @@ export default function Eux() {
         </thead>
         <tbody>
             {slides
-                ?.filter(k =>
-                ["1a", "1b", "1c", "1d", "1e"].some(code => k.class.includes(code))
-                )
+                ?.filter(k =>["1a", "1b", "1c", "1d", "1e"].some(code => k.class.includes(code)))
                 .map((klasse, i) => (
                 <tr key={i}>
-                    <td>EUX - {getClassName(klasse.class)}</td>
+                    <td>EUX - {getClassName(klasserNavn[klasse.class] || klasse.class)}</td>
                     <td>
                     {klasse.teacher
                         .split(",") // split into ["dow", " shl", " han"]

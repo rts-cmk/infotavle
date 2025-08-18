@@ -36,7 +36,7 @@ const getClassNameFactory = (map) => {
 
 
 
-export default function Grundforløb1() {
+export default function Webudvikler() {
 
    const [slides, setSlides] = useState();
    
@@ -48,11 +48,10 @@ export default function Grundforløb1() {
      }, []);
 
        const getClassName = useMemo(() => getClassNameFactory(klasserNavn), []);
-       const excluded = ["1a", "1b", "1c","1d", "1e"];
    
      return (
        <>
-         <h1 className="slide__title text-5xl text-center mb-8"> Grundforløb 1  </h1>
+         <h1 className="slide__title text-5xl text-center mb-8">- Webudvikler -</h1>
    
          <table className="pt-15 w-full text-left">
            <thead>
@@ -64,7 +63,7 @@ export default function Grundforløb1() {
            </thead>
            <tbody>
                {slides
-                ?.filter(k => k.class.includes("329")).map((klasse, i) => ( 
+                ?.filter(k => k.class.includes("1465")).map((klasse, i) => ( 
                     <tr key={i}>
                         <td>{getClassName(klasse.class)}</td>
                         <td>
