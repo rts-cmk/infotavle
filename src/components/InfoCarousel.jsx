@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Welcome from "./slides/Welcome";
-import Klasser from "./slides/Klasser";
+import Eux from "./slides/klasser/Eux";
 import Pauser from "./slides/Pauser";
+import Grundforløb1 from "./slides/klasser/Grundforløb";
 
 const InfoCarousel = () => {
-  const slides = [<Welcome />, <Klasser />, <Pauser />]
+  const slides = [<Welcome />, <Eux/>, <Pauser />, <Grundforløb1/>]
   const [currentIndex, setCurrentIndex] = useState(0);
 
 
@@ -16,7 +17,7 @@ const InfoCarousel = () => {
       setTimeout(() => {
         setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
       });
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides]);
@@ -27,12 +28,11 @@ const InfoCarousel = () => {
   return (
     <AnimatePresence>
       <motion.div
-        // key={currentIndex}
-        // className="info__slider"
-        // initial={{ opacity: 0, }}
-        // animate={{ opacity: 1, x: 0 }}
-        // exit={{ opacity: 0 }}
-        // transition={{ duration: 2 }}
+      //   key={currentIndex}
+      // initial={{ opacity: 0, x: 100 }}
+      // animate={{ opacity: 1, x: 0 }}
+      // exit={{ opacity: 0, x: -100 }}
+      // transition={{ duration: 0.5 }}
       >
         {currentSlide}
       </motion.div>
