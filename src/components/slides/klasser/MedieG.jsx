@@ -51,9 +51,9 @@ export default function Mediegrafiker() {
    
      return (
        <>
-         <h1 className="slide__title text-5xl text-center mb-8">- Mediegrafiker -</h1>
+         <h1 className="slide__title text-5xl text-center mb-8">Mediegrafiker </h1>
    
-         <table className="pt-15 w-full text-left">
+         <table className="pt-15 w-full text-left klasse__table">
            <thead>
              <tr>
                <th>Klasse</th>
@@ -63,7 +63,7 @@ export default function Mediegrafiker() {
            </thead>
            <tbody>
                {slides
-                ?.filter(k => k.class.includes("1525") && k.class.includes("11")).map((klasse, i) => ( 
+                ?.filter(k => k.class.includes("1525")).map((klasse, i) => ( 
                     <tr key={i}>
                         <td>{getClassName(klasse.class)}</td>
                         <td>

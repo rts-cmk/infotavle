@@ -3,6 +3,7 @@ import { klasserNavn, teachersNavn } from "../slides__components/NavnCodes";
 
 
 
+
 const getClassNameFactory = (map) => {
   // Prefer longest codes first (avoid 146 matching when code is 1465)
   const entriesByLen = Object.entries(map).sort(
@@ -36,7 +37,7 @@ const getClassNameFactory = (map) => {
 
 
 
-export default function TekniskD() {
+export default function GrundF() {
 
    const [slides, setSlides] = useState();
    
@@ -48,11 +49,10 @@ export default function TekniskD() {
      }, []);
 
        const getClassName = useMemo(() => getClassNameFactory(klasserNavn), []);
-       console.log(getClassName);
-
+   
      return (
        <>
-         <h1 className="slide__title text-5xl text-center mb-8">Teknisk Design</h1>
+         <h1 className="slide__title text-5xl text-center mb-8">Grundforløb 1</h1>
    
          <table className="pt-15 w-full text-left klasse__table">
            <thead>
@@ -62,34 +62,37 @@ export default function TekniskD() {
                <th>Lokale</th>
              </tr>
            </thead>
-           <tbody>
-               {slides
-                ?.filter(k => k.class.includes("1890")).map((klasse, i) => ( 
+            <tbody>
+                {slides
+                    ?.filter(k => 
+                    k.class.includes("00329") &&           
+                    !["J", "D", "C", "Q"]
+                    .some(letter => k.classroom?.includes(letter)))
+                    .map((klasse, i) => ( 
                     <tr key={i}>
+                       <td>
+                        {["1a", "1b", "1c", "1d", "1e"].some(eux =>
+                            getClassName(klasse.class).endsWith(eux)
+                        ) ? (
+                            <>
+                            {getClassName(klasse.class)} <span>- EUX</span>
+                            </>
+                        ) : (
+                            getClassName(klasse.class)
+                        )}
+                        </td>
                         <td>
-                            {klasse.class.startsWith('0') ? (
-                              <>
-                                {getClassName(klasse.class)} <span className="level">- Grundforløb 2 </span>
-                              </>
-                            ) : klasse.class.startsWith('1') ? (
-                              <>
-                                {getClassName(klasse.class)} <span className="level">- Hovedforløb</span>
-                              </>
-                            ) : (
-                              getClassName(klasse.class)
-                            )}
-                          </td>
-                        <td>
-                            {klasse.teacher
+                        {klasse.teacher
                             .split(", ")
                             .map(code => code.trim())
                             .map(code => teachersNavn[code] || code)
                             .join(", ")}
                         </td>
                         <td>{klasse.classroom || "-"}</td>
-                  </tr>
-                ))}
-           </tbody>
+                    </tr>
+                    ))}
+            </tbody>
+
          </table>
        </>
      );

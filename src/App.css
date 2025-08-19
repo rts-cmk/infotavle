@@ -65,6 +65,7 @@ body {
   height: 35rem;
   overflow: auto;
   border-radius: 30px;
+  overflow: hidden;
 }
 
 
@@ -112,4 +113,14 @@ body {
 .info__container,
 .info__slider {
   box-sizing: border-box;
+}
+
+.klasse__table {
+  font-size: 1.35rem;
+  width: 45rem;
+}
+
+.klasse__table th{
+  font-size: 1.5rem;
+  padding-block: 1rem;
 }

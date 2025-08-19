@@ -50,7 +50,7 @@ export default function Eux() {
     <>
       <h1 className="slide__title text-5xl text-center mb-8"> Grundforløb EUX </h1>
 
-      <table className="pt-15 w-full text-left">
+      <table className="pt-15 w-full text-left klasse__table">
         <thead>
           <tr>
             <th>Klasse</th>
