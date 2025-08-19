@@ -2,43 +2,55 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Welcome from "./slides/Welcome";
-import Eux from "./slides/klasser/Eux";
 import Pauser from "./slides/Pauser";
 import WebU from "./slides/klasser/WebU";
 import MedieG from "./slides/klasser/MedieG";
 import TekniskD from "./slides/klasser/TekniskD";
+import GrundF from "./slides/klasser/GrundF";
+
+
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -300 : 300,
+    opacity: 0,
+  }),
+};
 
 const InfoCarousel = () => {
-  const slides = [<Welcome />, <Eux/>, <WebU/>,<MedieG/>,<TekniskD/>, <Pauser />]
-
+  const slides = [<Welcome />, <GrundF />, <WebU />, <MedieG />, <TekniskD />, <Pauser />];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    if (slides.length === 0) return;
     const interval = setInterval(() => {
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-      });
-
-    }, 8000);
-
+      setDirection(1); // always forward
+      setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 11000);
 
     return () => clearInterval(interval);
-  }, [slides]);
-
-  const currentSlide = slides[currentIndex];
+  }, [slides.length]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait" custom={direction}>
       <motion.div
-      // key={currentIndex}
-      // className="info__slider"
-      // initial={{ opacity: 0, }}
-      // animate={{ opacity: 1, x: 0 }}
-      // exit={{ opacity: 0 }}
-      // transition={{ duration: 2 }}
+        key={currentIndex}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{ duration: 1.5 }}
+        className="info__slider"
       >
-        {currentSlide}
+        {slides[currentIndex]}
       </motion.div>
     </AnimatePresence>
   );

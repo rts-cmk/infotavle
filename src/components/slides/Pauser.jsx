@@ -6,8 +6,10 @@ export default function Pauser() {
         <section className="slide__pauser">
 
         <ul className="slide__descript mt-4">
-            <li className="pause__time">Første pause er kl. 9.40</li>
-            <li className="pause__time">Frokostpausen er kl. 11.30</li>
+            <span>
+                <li className="pause__time">Første pause er kl. 9.40</li>
+                <li className="pause__time">Frokostpausen er kl. 11.30</li>
+            </span>
         </ul>
          <img
                   className="mappy"
