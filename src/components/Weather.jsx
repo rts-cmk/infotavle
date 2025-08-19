@@ -9,7 +9,7 @@ function WeeklyWeather() {
     async function fetchForecast() {
       try {
         const res = await fetch(
-          "https://api.weatherapi.com/v1/forecast.json?key=9acad37a3d4f476a87c85220250408&q=Roskilde,Denmark&days=15&lang=da"
+          "https://api.weatherapi.com/v1/forecast.json?key=67c4f28caf7044378e8113418251908&q=Roskilde,Denmark&days=14&lang=da"
         );
         if (!res.ok) throw new Error("Kunne ikke hente vejrudsigten");
         const data = await res.json();
@@ -28,7 +28,7 @@ function WeeklyWeather() {
   // Filter weekdays (Mon–Fri)
   const weather = forecast.forecast.forecastday.filter((day) => {
     const dow = new Date(day.date).getDay()
-    return dow >= 1 && dow <= 5
+    return dow >= 1 && dow <= 7
   })
 
   // Take today's forecast (first item in filtered weekdays)
