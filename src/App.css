@@ -41,8 +41,8 @@ body {
 .animated__background {
   position: absolute;
   top: 30%;
-   z-index: -1;
-   left: 3rem;
+   z-index: 2;
+   right: 02%;
    opacity: 0.2;
 }
 
@@ -62,7 +62,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   height: 35rem;
   overflow: auto;
   border-radius: 30px;

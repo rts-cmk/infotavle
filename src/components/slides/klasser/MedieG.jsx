@@ -63,7 +63,7 @@ export default function Mediegrafiker() {
            </thead>
            <tbody>
                {slides
-                ?.filter(k => k.class.includes("1525")).map((klasse, i) => ( 
+                ?.filter(k => k.class.includes("1525") && k.class.includes("11")).map((klasse, i) => ( 
                     <tr key={i}>
                         <td>{getClassName(klasse.class)}</td>
                         <td>
