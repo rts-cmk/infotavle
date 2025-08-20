@@ -64,33 +64,36 @@ export default function GrundF() {
            </thead>
             <tbody>
                 {slides
-                    ?.filter(k => 
-                    k.class.includes("00329") &&           
-                    !["J", "D", "C", "Q"]
-                    .some(letter => k.classroom?.includes(letter)))
-                    .map((klasse, i) => ( 
+                ?.filter(
+                    (k) =>
+                    k.class.includes("00329") &&
+                    !["J", "D", "C", "Q"].some((letter) =>
+                        k.classroom?.includes(letter)
+                    ) &&
+                    !k.class.includes("pte") // 👈 filter only those with "pte" in class
+                )
+                .map((klasse, i) => (
                     <tr key={i}>
-                       <td>
-                        {["1a", "1b", "1c", "1d", "1e"].some(eux =>
-                            getClassName(klasse.class).endsWith(eux)
+                    <td>
+                        {["1a", "1b", "1c", "1d", "1e"].some((eux) =>
+                        getClassName(klasse.class).endsWith(eux)
                         ) ? (
-                            <>
+                        <>
                             {getClassName(klasse.class)} <span>- EUX</span>
-                            </>
-                        ) : (
-                            getClassName(klasse.class)
-                        )}
-                        </td>
-                        <td>
+                        </>
+                        ) : klasse.class.includes('c3d')? (<span>Det Digitale Design</span>) : null}
+                    </td>
+                    <td>
                         {klasse.teacher
-                            .split(", ")
-                            .map(code => code.trim())
-                            .map(code => teachersNavn[code] || code)
-                            .join(", ")}
-                        </td>
-                        <td>{klasse.classroom || "-"}</td>
-                    </tr>
-                    ))}
+          .split(", ")
+          .map((code) => code.trim())
+          .map((code) => teachersNavn[code] || code)
+          .join(", ")}
+      </td>
+      <td>{klasse.classroom || "-"}</td>
+    </tr>
+  ))}
+
             </tbody>
 
          </table>

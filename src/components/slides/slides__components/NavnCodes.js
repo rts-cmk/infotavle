@@ -32,4 +32,11 @@ export const teachersNavn = {
   joro: "Jon",
   olp: "Ole",
   clu: "Carsten",
+  cch: "Chris",
+  pel:"Peter",
+  phl:"Peter",
+  tan:"Tanja",
+  sw:"--",
+  ram:"--"
+
 };
