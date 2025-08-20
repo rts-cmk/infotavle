@@ -64,7 +64,7 @@ export default function TekniskD() {
            </thead>
            <tbody>
                {slides
-                ?.filter(k => k.class.includes("1890")).map((klasse, i) => ( 
+                ?.filter(k => k.class.includes("1890") && !k.class.includes('on')).map((klasse, i) => ( 
                     <tr key={i}>
                         <td>
                             {klasse.class.startsWith('0') ? (

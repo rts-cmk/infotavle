@@ -3,6 +3,7 @@ export const klasserNavn = {
 "1525": "Mediegrafiker",
   "1465": "Webudvikler",
   "1890": "Teknisk Design",
+  "c3d" : 'Det Digitale Design',
 };
 
 
@@ -37,6 +38,9 @@ export const teachersNavn = {
   phl:"Peter",
   tan:"Tanja",
   sw:"--",
-  ram:"--"
+  ram:"--",
+  anis: "Anita",
+  amd: "Amel",
+  btk:"Brian"
 
 };
