@@ -24,25 +24,30 @@ body {
   text-align: center;
 }
 .weather {
-  background-color: #00aeef;
   grid-row: span 2;
   font-size: 1.5rem;
 }
 
-.weather__list {
+.weather__list{
   display: grid;
   grid-template-rows: repeat(5, 1fr);
-  height: 90%;
   position: relative;
-  padding-top: 2em;
+  padding-top: 2rem;
+  z-index: 1;
+  background-color: #00aeef;
+  height: 100vh;
 }
 
 .animated__background {
   position: absolute;
+  top: 30%;
+   z-index: 2;
+   right: 02%;
+   opacity: 0.2;
 }
 
 .weather__list li {
-  z-index: 2;
+  z-index: 3;
 }
 
 .weather__day {
@@ -57,24 +62,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   height: 35rem;
   overflow: auto;
   border-radius: 30px;
+  overflow: hidden;
+}
+
+
+
+.slide__pauser{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  
+}
+
+.pause__time{
+  font-size: 1.5rem;
 }
 
 .mappy {
-  width: 30rem;
-  height: 30rem;
+  width: 25rem;
+  height: 25rem;
 }
 
-.info__slider {
+.info__slide {
   font-display: flex;
   font-size: 1.5em;
   text-align: center;
   flex-direction: column;
   overflow: auto;
-  width: 60%;
+  width: 80%;
 }
 
 .slide__title {
@@ -85,10 +103,9 @@ body {
   font-size: 1.5rem;
 }
 
-.slide__descript.mt-4 {
+.slide__descript {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   align-items: center;
   gap: 2rem;
 }
@@ -96,4 +113,14 @@ body {
 .info__container,
 .info__slider {
   box-sizing: border-box;
+}
+
+.klasse__table {
+  font-size: 1.35rem;
+  width: 45rem;
+}
+
+.klasse__table th{
+  font-size: 1.5rem;
+  padding-block: 1rem;
 }

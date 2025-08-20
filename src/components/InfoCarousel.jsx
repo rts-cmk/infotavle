@@ -1,87 +1,60 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+import Welcome from "./slides/Welcome";
+import Pauser from "./slides/Pauser";
+import WebU from "./slides/klasser/WebU";
+import MedieG from "./slides/klasser/MedieG";
+import TekniskD from "./slides/klasser/TekniskD";
+import GrundF from "./slides/klasser/GrundF";
+
+
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -300 : 300,
+    opacity: 0,
+  }),
+};
 
 const InfoCarousel = () => {
-  const [slides, setSlides] = useState([]);
+  const slides = [<Welcome />, <GrundF />, <WebU />, <MedieG />, <TekniskD />, <Pauser />];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
-    fetch("/data/sampledata.json")
-      .then((res) => res.json())
-      .then((data) => setSlides(data.slides))
-      .catch((error) => console.error("Failed to load data:", error));
-  }, []);
-
-  useEffect(() => {
-    if (slides.length === 0) return;
     const interval = setInterval(() => {
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-      });
-    }, 10000);
+      setDirection(1); // always forward
+      setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 11000);
 
     return () => clearInterval(interval);
-  }, [slides]);
-
-  if (slides.length === 0) return <div>Loading...</div>;
-
-  const currentSlide = slides[currentIndex];
+  }, [slides.length]);
 
   return (
-    <motion.div
-      className="info__slider"
-      key={currentIndex}
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -100 }}
-      transition={{ duration: 0.5 }}
-    >
-      <h2 className="slide__title text-5xl text-center mb-8">
-        {currentSlide.title}
-      </h2>
-
-      {Array.isArray(currentSlide.description) ? (
-        typeof currentSlide.description[0] === "object" ? (
-          <table className="pt-15 w-full text-left">
-            <thead>
-              <tr>
-                <th>Klasse</th>
-                <th>Underviser</th>
-                <th>Lokale</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentSlide.description.map((item, idx) => (
-                <tr key={idx}>
-                  <td>{item.class}</td>
-                  <td>{item.teacher}</td>
-                  <td>{item.classroom || "-"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <ul className="slide__descript mt-4">
-            {currentSlide.description.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-
-            {currentSlide.title === "Pauser" && (
-              <li>
-                <img
-                  className="mappy"
-                  src="./map.svg"
-                  alt="map of canteen and more"
-                />
-              </li>
-            )}
-          </ul>
-        )
-      ) : (
-        <p className="slide__description mt-4">{currentSlide.description}</p>
-      )}
-    </motion.div>
+    <AnimatePresence mode="wait" custom={direction}>
+      <motion.div
+        key={currentIndex}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{ duration: 1.5 }}
+        className="info__slider"
+      >
+        {slides[currentIndex]}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
 export default InfoCarousel;
+
