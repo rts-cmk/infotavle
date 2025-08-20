@@ -81,18 +81,17 @@ export default function GrundF() {
                         <>
                             {getClassName(klasse.class)} <span>- EUX</span>
                         </>
-                        ) : klasse.class.includes('c3d')? (<span>Det Digitale Design</span>) : null}
+                        ) : getClassName(klasse.class)}
                     </td>
                     <td>
-                        {klasse.teacher
-          .split(", ")
-          .map((code) => code.trim())
-          .map((code) => teachersNavn[code] || code)
-          .join(", ")}
-      </td>
-      <td>{klasse.classroom || "-"}</td>
-    </tr>
-  ))}
+                        {klasse.teacher.split(", ")
+                        .map((code) => code.trim())
+                        .map((code) => teachersNavn[code] || code)
+                        .join(", ")}
+                      </td>
+                      <td>{klasse.classroom || "-"}</td>
+                    </tr>
+                  ))}
 
             </tbody>
 

@@ -1,3 +1,4 @@
+ 
 [
     {
         "class": "1146524c3w12",
@@ -5,24 +6,24 @@
         "classroom": "X2108a"
     },
     {
+        "class": "1152525c40",
+        "teacher": "amd",
+        "classroom": "X2305a"
+    },
+    {
         "class": "0032925c3d",
-        "teacher": "tsj",
+        "teacher": "anis",
         "classroom": "X2210a"
-    },
-    {
-        "class": "0189025c3t14",
-        "teacher": "dow, kbr",
-        "classroom": "HS414"
-    },
-    {
-        "class": "0146525c3w15",
-        "teacher": "dow, shl, han",
-        "classroom": "X2109d"
     },
     {
         "class": "1189025c12b",
         "teacher": "ssh",
         "classroom": "HS411"
+    },
+    {
+        "class": "0032925b32blh2",
+        "teacher": "lase",
+        "classroom": "Q3101A"
     },
     {
         "class": "0032925b32blh1",
@@ -31,18 +32,8 @@
     },
     {
         "class": "0032925b32blh3",
-        "teacher": "miry",
+        "teacher": "miry, kij",
         "classroom": "Q8101"
-    },
-    {
-        "class": "0032925b32blh2",
-        "teacher": "lase",
-        "classroom": "Q3101A"
-    },
-    {
-        "class": "0032925b32blh4",
-        "teacher": "cns",
-        "classroom": "Q3101B"
     },
     {
         "class": "0032925pmt01",
@@ -51,13 +42,13 @@
     },
     {
         "class": "0032925pmt02",
-        "teacher": "henj",
-        "classroom": "J3167"
+        "teacher": "jaha, lsg",
+        "classroom": "J2145"
     },
     {
         "class": "0032925pmt03",
-        "teacher": "aij",
-        "classroom": "J3168a"
+        "teacher": "jaha, lsg",
+        "classroom": "J2145"
     },
     {
         "class": "0032925pte01",
@@ -70,6 +61,11 @@
         "classroom": "C9101"
     },
     {
+        "class": "0032925pte05",
+        "teacher": "nas",
+        "classroom": ""
+    },
+    {
         "class": "0032925pte02",
         "teacher": "klba",
         "classroom": ""
@@ -80,34 +76,44 @@
         "classroom": ""
     },
     {
-        "class": "0032925pte05",
-        "teacher": "nas",
-        "classroom": ""
-    },
-    {
-        "class": "0032925px1a",
-        "teacher": "kala, pdh",
-        "classroom": "X1403a"
-    },
-    {
-        "class": "0032925px1b",
-        "teacher": "mabj, pdh",
-        "classroom": "X2406b"
-    },
-    {
-        "class": "0032925px1c",
-        "teacher": "sw, mabj",
-        "classroom": "X2404b"
+        "class": "0032925px1d",
+        "teacher": "joro",
+        "classroom": "X2404"
     },
     {
         "class": "0032925px1e",
-        "teacher": "lac, joro, olp",
+        "teacher": "pdh",
         "classroom": "X2307a"
     },
     {
-        "class": "0032925px1d",
-        "teacher": "olp, tan, sw",
-        "classroom": "X2404"
+        "class": "0032925px1c",
+        "teacher": "kala",
+        "classroom": "X2404b"
+    },
+    {
+        "class": "0032925px1b",
+        "teacher": "lac",
+        "classroom": "X2406b"
+    },
+    {
+        "class": "0032925px1a",
+        "teacher": "olp",
+        "classroom": "X1403a"
+    },
+    {
+        "class": "0032925b32blh4",
+        "teacher": "ridy, cns, kij",
+        "classroom": "Q1218"
+    },
+    {
+        "class": "1146525c3w14",
+        "teacher": "han",
+        "classroom": "X2109b"
+    },
+    {
+        "class": "0146525c3w15",
+        "teacher": "shl, tsj",
+        "classroom": "X2109d"
     },
     {
         "class": "1146525c1w13",
@@ -115,18 +121,20 @@
         "classroom": "X2109a"
     },
     {
+        "class": "0189025c3t14",
+        "teacher": "btk",
+        "classroom": "HS414"
+    },
+    {
         "class": "0189025c3t14on",
-        "teacher": "kbr",
+        "teacher": "btk",
         "classroom": ""
     },
     {
         "class": "1189025c12m",
         "teacher": "pel, cch",
         "classroom": "HS413"
-    },
-    {
-        "class": "1152525c40typo",
-        "teacher": "phl",
-        "classroom": "X2305a"
     }
 ]
+ 
+ 
