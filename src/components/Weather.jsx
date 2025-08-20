@@ -25,10 +25,12 @@ function WeeklyWeather() {
   if (error) return <p>Fejl: {error}</p>;
   if (!forecast) return <p>Indlæser vejrudsigten...</p>;
 
-  // Filter weekdays (Mon–Fri)
   const weather = forecast.forecast.forecastday.filter((day) => {
     const dow = new Date(day.date).getDay()
-    return dow >= 1 && dow <= 7
+
+    console.log(dow);
+
+    return dow >= 0 && dow <= 7
   })
 
   // Take today's forecast (first item in filtered weekdays)
